@@ -1,0 +1,8 @@
+= C4 Model in AsciiDoctor
+:toc:
+
+This is a example project for how to create C4 architectural diagrams using AsciiDoctor and PlantUML
+
+include::c4-example.adoc[]
+include::build.adoc[]
+include::references.adoc[]

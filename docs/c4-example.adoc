@@ -1,0 +1,21 @@
+== C4 and AsciiDoctor
+// yes, asciidoctor supports comments...
+:toc:
+// ...as well as table of content generation
+
+== Purpose
+The purpose of this document is to show how AsciiDoc can be used to generate C4 diagrams from PlantUML, both as html and pdf.
+
+This PlantUML file:
+[source,plantuml]
+----
+include::c4-example.puml[]
+----
+
+generates this C4 diagram:
+
+[plantuml, ./c4-example, png]
+.C4 Example
+....
+include::c4-example.puml[]
+....

@@ -1,0 +1,47 @@
+== Build
+
+
+=== Locally
+
+You need to have Docker installed. Then you can execute the following commands:
+
+[source,bash]
+.Download asciidoctor docker image
+----
+docker pull asciidoctor/docker-asciidoctor
+----
+
+[source,bash]
+.Render this project as html
+----
+docker run --rm -v $(pwd):/documents/ asciidoctor/docker-asciidoctor asciidoctor --require asciidoctor-diagram docs/index.adoc
+----
+
+or
+[source,bash]
+.Render this document as a .pdf file
+----
+docker run --rm -v $(pwd):/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf --require asciidoctor-diagram docs/index.adoc
+----
+
+Explanation
+
+* `docker run` starts a Docker container
+* `--rm cleanup` removes the Docker container after the command has been executed
+* `-v` mount a volume to the image
+* `$(pwd)` get the path to the current directory, e.g. the location of `c4-example.adoc` file
+* `/documents/` the name of the mounted volume in the running container
+* `asciidoctor/docker-asciidoctor` the name of the Docker image that is used to create the Docker container
+* `asciidoctor` command to execute asciidoctor command to generate html (to be replaced with `asciidoctor-pdf` to generate pdf)
+* `--require asciidoctor-diagram` require the asciidoctor-diagram to be included (necessary for PlantUML rendering)
+* `c4-example.adoc` the name of the AsciiDoc source file to generate the file from
+
+
+=== GitHub Actions and Publish to GitHub pages
+
+Build using GitHub Actions and puglish to GitHub Pages:
+
+[source,yml]
+----
+include::../.github/workflows/cicd.yml[]
+----
