@@ -1,0 +1,62 @@
+== Build Local
+
+=== Prerequisites
+- You need to have Docker installed and running.
+- Then you need to download the `asciidoctor/docker-asciidoctor` image:
++
+[source,bash]
+----
+docker pull asciidoctor/docker-asciidoctor
+----
+
+
+=== Render html
+
+This project can be rendered as html using this bash command:
+
+[source%linenums,bash]
+.bash
+----
+docker run --rm \
+  -v "$(pwd)":/documents/ \
+  asciidoctor/docker-asciidoctor \
+  asciidoctor \
+  --require asciidoctor-diagram \
+  --destination-dir target \
+  docs/index.adoc
+----
+
+
+==== Explanation
+
+Line by line explanation of the bash commands above:
+
+. `docker run` starts a Docker container. The `--rm` option removes the container after the command has completed.
+. `-v` mount a volume to the container, i.e. the current directory (as returned by `$(pwd)` command) is mounted to the `/documents/` directory in the running Docker. container. The `/documents/` directory is the default working director of the `asciidoctor/docker-asciidoctor` Docker image.
+. `asciidoctor/docker-asciidoctor` the name of the Docker image that is used to create the Docker container.
+. `asciidoctor` command to execute asciidoctor command to render html.
+. `--require asciidoctor-diagram` require the asciidoctor-diagram to be included (necessary for PlantUML rendering).
+* `--destination-dir target` the destination directory of the output files in the Docker container (and in the current directory since it is mounted).
+* `docs/index.adoc` the name of the AsciiDoc source file to generate the file from. Only the root document needs to be included since the other files are linked from it.
+
+
+=== Render pdf
+
+Alternatively, this project can be rendered as a pdf:
+
+[source%linenums,bash]
+.generate pdf
+----
+docker run --rm \
+  -v "$(pwd)":/documents/ \
+  asciidoctor/docker-asciidoctor \
+  asciidoctor-pdf \
+  --require asciidoctor-diagram \
+  --destination-dir target \
+  docs/index.adoc
+----
+
+
+==== Explanation
+
+As can be seen, rendering a pdf is very similar to rendering html. The only difference is the asciidoctor command on line `4` that has been changed to `asciidoctor-pdf`.

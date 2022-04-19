@@ -1,0 +1,21 @@
+== References
+
+.references
+|===
+|Link |Comment
+
+|This project at GitHub
+|https://github.com/matsev/c4-model-adoc
+
+|AsciiDoctor Docker at GitHub
+|https://github.com/asciidoctor/docker-asciidoctor#readme
+
+|PlantUML
+|https://plantuml.com
+
+|C4 PlantUml
+|https://plantuml.com/stdlib#062f75176513a666
+
+|GitHub Pages
+|https://pages.github.com
+|===

@@ -1,0 +1,8 @@
+== GitHub Actions
+
+Build using GitHub Actions and publish to GitHub Pages:
+
+[source,yml]
+----
+include::../.github/workflows/build-and-deploy.yml[]
+----

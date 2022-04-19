@@ -1,0 +1,12 @@
+= C4 Model in AsciiDoctor
+// yes, asciidoctor supports comments...
+:toc:
+// ...as well as table of content generation
+
+include::c4-example.adoc[]
+
+include::build-local.adoc[]
+
+include::build-github.adoc[]
+
+include::references.adoc[]
