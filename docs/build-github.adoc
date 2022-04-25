@@ -1,0 +1,8 @@
+== GitHub Actions and Publish to GitHub pages
+
+Build using GitHub Actions and publish to GitHub Pages:
+
+[source,yml]
+----
+include::../.github/workflows/cicd.yml[]
+----

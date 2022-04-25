@@ -1,0 +1,44 @@
+== Build Local
+
+=== Prerequisites
+- You need to have Docker installed and running.
+- Then you need to download the `asciidoctor/docker-asciidoctor` image:
++
+[source,bash]
+
+----
+docker pull asciidoctor/docker-asciidoctor
+----
+
+=== Render html
+
+Example script that renders this project as a html file:
+[source%linenums,bash]
+.render-html.sh
+----
+include::../render-html.sh[]
+----
+
+
+=== Render .pdf file
+
+Example script that renders this project as a pdf file:
+
+.render-pdf.sh
+[source%linenums,bash]
+----
+include::../render-pdf.sh[]
+----
+
+
+=== Explanation
+
+* `SCRIPT_DIR` assigns the location of the bash script to a variable
+* `docker run` starts a Docker container
+* `--rm` removes the Docker container after the command has been executed
+* `-v` mount a volume to the image, i.e. the current directory is mounted to the `/documents/` in the running Docker container which is the default working director of the `asciidoctor/docker-asciidoctor` Docker image
+* `asciidoctor/docker-asciidoctor` the name of the Docker image that is used to create the Docker container
+* `asciidoctor` command to execute asciidoctor command to generate html (or `asciidoctor-pdf` to generate pdf)
+* `--require asciidoctor-diagram` require the asciidoctor-diagram to be included (necessary for PlantUML rendering)
+* `--destination-dir target` the destination directory of the output files in the Docker container (and in the current directory since it is mounted)
+* `docs/index.adoc` the name of the AsciiDoc source file to generate the file from

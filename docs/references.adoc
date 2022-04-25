@@ -8,7 +8,7 @@
 |https://github.com/matsev/c4-model-adoc
 
 |AsciiDoctor Docker at GitHub
-|https://github.com/asciidoctor/docker-asciidoctor
+|https://github.com/asciidoctor/docker-asciidoctor#readme
 
 |PlantUML
 |https://plantuml.com

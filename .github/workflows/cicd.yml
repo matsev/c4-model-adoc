@@ -1,27 +1,39 @@
 name: Build and deploy
 
-
 on:
   push:
     branches:
       - main
 
-
 jobs:
-
   build:
-
     runs-on: ubuntu-20.04
+
+    container:
+      image: asciidoctor/docker-asciidoctor:1.18
+      volumes:
+        # /documents/ is the default working directory of the
+        - ${{ github.workspace }}:/documents/
+
+    env:
+      BUILD_DIR: target
+      DEPLOY_DIR: _site
 
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Build 🏗
-        uses: asciidoctor/docker-asciidoctor
+      - name: Generate html 🏗
+        run: asciidoctor --require asciidoctor-diagram docs/index.adoc --destination-dir ${BUILD_DIR}
+
+      - name: Generate pdf 🏗
+        run: asciidoctor-pdf --require asciidoctor-diagram docs/index.adoc --destination-dir ${BUILD_DIR}
+
+      - name: Copy artifacts 🚚
+        run: rsync -av --exclude=".*" ${BUILD_DIR} ${DEPLOY_DIR}
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.0
+        uses: JamesIves/github-pages-deploy-action@v4.3.2
         with:
           branch: public
-          folder: _site
+          folder: ${DEPLOY_DIR}
