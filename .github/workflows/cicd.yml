@@ -33,7 +33,7 @@ jobs:
         run: rsync -av --exclude=".*" ${BUILD_DIR} ${DEPLOY_DIR}
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.2
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: public
           folder: ${DEPLOY_DIR}
