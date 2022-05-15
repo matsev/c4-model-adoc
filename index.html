@@ -617,30 +617,30 @@ jobs:
       image: asciidoctor/docker-asciidoctor:1.18
       volumes:
         # /documents/ is the default working directory of the docker-asciidoctor container
-        - ${{github.workspace}}:/documents/
+        - ${{ github.workspace }}:/documents/
 
     env:
-      BUILD_DIR: target
-      DEPLOY_DIR: _site
+      BUILD_PATH: target
+      DEPLOY_PATH: _site
 
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
       - name: Generate html 🏗
-        run: asciidoctor --require asciidoctor-diagram docs/index.adoc --destination-dir "${BUILD_DIR}"
+        run: asciidoctor --require asciidoctor-diagram docs/index.adoc --destination-dir ${{ env.BUILD_PATH }}
 
       - name: Generate pdf 🏗
-        run: asciidoctor-pdf --require asciidoctor-diagram docs/index.adoc --destination-dir "${BUILD_DIR}"
+        run: asciidoctor-pdf --require asciidoctor-diagram docs/index.adoc --destination-dir ${{ env.BUILD_PATH }}
 
       - name: Copy artifacts 🚚
-        run: apk add rsync &amp;&amp; rsync -av --exclude=".*" "${BUILD_DIR}/" "${DEPLOY_DIR}"
+        run: apk add rsync &amp;&amp; rsync -av --exclude=".*" ${{ env.BUILD_PATH }}/ ${{ env.DEPLOY_PATH }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
           branch: public
-          folder: ${{env.DEPLOY_DIR}}</code></pre>
+          folder: ${{ env.DEPLOY_PATH }}</code></pre>
 </div>
 </div>
 </div>
@@ -688,7 +688,7 @@ jobs:
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-05-15 06:32:36 UTC
+Last updated 2022-05-15 09:06:31 UTC
 </div>
 </div>
 </body>
