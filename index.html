@@ -435,6 +435,221 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sa {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
 </head>
 <body class="article">
 <div id="header">
@@ -443,6 +658,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_purpose">Purpose</a></li>
+<li><a href="#_c4_example">C4 Example</a></li>
 <li><a href="#_build_local">Build Local</a>
 <ul class="sectlevel2">
 <li><a href="#_prerequisites">Prerequisites</a></li>
@@ -450,7 +666,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_render_pdf">Render pdf</a></li>
 </ul>
 </li>
-<li><a href="#_github_actions">GitHub Actions</a></li>
+<li><a href="#_build_github_actions">Build GitHub Actions</a>
+<ul class="sectlevel2">
+<li><a href="#_explanation_3">Explanation</a></li>
+</ul>
+</li>
 <li><a href="#_references">References</a></li>
 </ul>
 </div>
@@ -460,7 +680,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_purpose">Purpose</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The purpose of this document is to show how AsciiDoc can be used to generate C4 diagrams from PlantUML, both as html and pdf. The following example is based on the <a href="https://c4model.com/#SystemContextDiagram">System Context Diagram</a> example at the C4 Model home page. Consequently, this C4 diagram:</p>
+<p>The purpose of this project is to show how AsciiDoc can be used to generate C4 diagrams from PlantUML, both as html and pdf.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_c4_example">C4 Example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following example is based on the <a href="https://c4model.com/#SystemContextDiagram">System Context Diagram</a> example at the C4 Model home page. Consequently, this C4 diagram:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -474,7 +702,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">plantuml source</div>
 <div class="content">
-<pre class="highlight"><code class="language-plantuml" data-lang="plantuml">@startuml
+<pre class="rouge highlight"><code data-lang="plantuml">@startuml
 !include &lt;C4/C4_Container&gt;
 title System Context diagram for Internet Banking System
 
@@ -505,10 +733,10 @@ Rel(banking_system, mainframe, "Uses")
 <p>You need to have Docker installed and running.</p>
 </li>
 <li>
-<p>Then you need to download the <code>asciidoctor/docker-asciidoctor</code> image:</p>
+<p>Download the <code>asciidoctor/docker-asciidoctor</code> image:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">docker pull asciidoctor/docker-asciidoctor</code></pre>
+<pre class="rouge highlight"><code data-lang="bash">docker pull asciidoctor/docker-asciidoctor</code></pre>
 </div>
 </div>
 </li>
@@ -521,21 +749,29 @@ Rel(banking_system, mainframe, "Uses")
 <p>This project can be rendered as html using this bash command:</p>
 </div>
 <div class="listingblock">
-<div class="title">bash</div>
+<div class="title">generate html</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">docker run --rm \
-  -v "$(pwd)":/documents/ \
-  asciidoctor/docker-asciidoctor \
-  asciidoctor \
-  --require asciidoctor-diagram \
-  --destination-dir target \
-  docs/index.adoc</code></pre>
+<pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>docker run <span class="nt">--rm</span> <span class="se">\</span>
+  <span class="nt">--volume</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span><span class="s2">"</span>:/documents/ <span class="se">\</span>
+  asciidoctor/docker-asciidoctor <span class="se">\</span>
+  asciidoctor <span class="se">\</span>
+  <span class="nt">--require</span> asciidoctor-diagram <span class="se">\</span>
+  <span class="nt">--destination-dir</span> target <span class="se">\</span>
+  docs/index.adoc
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_explanation">Explanation</h4>
 <div class="paragraph">
-<p>Line by line explanation of the bash commands above:</p>
+<p>Line by line explanation of the command above:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -543,20 +779,20 @@ Rel(banking_system, mainframe, "Uses")
 <p><code>docker run</code> starts a Docker container. The <code>--rm</code> option removes the container after the command has completed.</p>
 </li>
 <li>
-<p><code>-v</code> mount a volume to the container, i.e. the current directory (as returned by <code>$(pwd)</code> command) is mounted to the <code>/documents/</code> directory in the running Docker. container. The <code>/documents/</code> directory is the default working director of the <code>asciidoctor/docker-asciidoctor</code> Docker image.</p>
+<p><code>--volume</code> mount a volume to the container, i.e. the current directory (as returned by <code>$(pwd)</code> command) is mounted to the <code>/documents/</code> directory in the running Docker container. The <code>/documents/</code> directory is the default working director of the <code>asciidoctor/docker-asciidoctor</code> Docker image.</p>
 </li>
 <li>
 <p><code>asciidoctor/docker-asciidoctor</code> the name of the Docker image that is used to create the Docker container.</p>
 </li>
 <li>
-<p><code>asciidoctor</code> command to execute asciidoctor command to render html.</p>
+<p><code>asciidoctor</code> the AsciiDoctor command to render html.</p>
 </li>
 <li>
-<p><code>--require asciidoctor-diagram</code> require the asciidoctor-diagram to be included (necessary for PlantUML rendering).</p>
+<p><code>--require asciidoctor-diagram</code> AsciiDoctor argument that requires the asciidoctor-diagram to be used (necessary for PlantUML rendering).</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>--destination-dir target</code> the destination directory of the output files in the Docker container (and in the current directory since it is mounted).</p>
+<p><code>--destination-dir target</code> asciidoctor argument that defines the destination directory of the output files in the Docker container. In this case the <code>target</code> directory.</p>
 </li>
 <li>
 <p><code>docs/index.adoc</code> the name of the AsciiDoc source file to generate the file from. Only the root document needs to be included since the other files are linked from it.</p>
@@ -576,13 +812,21 @@ Rel(banking_system, mainframe, "Uses")
 <div class="listingblock">
 <div class="title">generate pdf</div>
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">docker run --rm \
-  -v "$(pwd)":/documents/ \
-  asciidoctor/docker-asciidoctor \
-  asciidoctor-pdf \
-  --require asciidoctor-diagram \
-  --destination-dir target \
-  docs/index.adoc</code></pre>
+<pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>docker run <span class="nt">--rm</span> <span class="se">\</span>
+  <span class="nt">--volume</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span><span class="s2">"</span>:/documents/ <span class="se">\</span>
+  asciidoctor/docker-asciidoctor <span class="se">\</span>
+  asciidoctor-pdf <span class="se">\</span>
+  <span class="nt">--require</span> asciidoctor-diagram <span class="se">\</span>
+  <span class="nt">--destination-dir</span> target <span class="se">\</span>
+  docs/index.adoc
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -595,64 +839,176 @@ Rel(banking_system, mainframe, "Uses")
 </div>
 </div>
 <div class="sect1">
-<h2 id="_github_actions">GitHub Actions</h2>
+<h2 id="_build_github_actions">Build GitHub Actions</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Build using GitHub Actions and publish to GitHub Pages:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-yml" data-lang="yml">name: Build and deploy
+<pre class="rouge highlight"><code data-lang="yml"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+</pre></td><td class="code"><pre><span class="na">name</span><span class="pi">:</span> <span class="s">Build and deploy</span>
 
-on:
-  push:
-    branches:
-      - main
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">main</span>
 
-jobs:
-  build:
-    runs-on: ubuntu-20.04
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">build</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-20.04</span>
 
-    container:
-      image: asciidoctor/docker-asciidoctor:1.18
-      volumes:
-        # /documents/ is the default working directory of the docker-asciidoctor container
-        - ${{ github.workspace }}:/documents/
+    <span class="na">container</span><span class="pi">:</span>
+      <span class="na">image</span><span class="pi">:</span> <span class="s">asciidoctor/docker-asciidoctor:1.18</span>
+      <span class="na">volumes</span><span class="pi">:</span>
+        <span class="c1"># /documents/ is the default working directory of the docker-asciidoctor container</span>
+        <span class="pi">-</span> <span class="s">${{ github.workspace }}:/documents/</span>
 
-    env:
-      BUILD_PATH: target
-      DEPLOY_PATH: _site
+    <span class="na">env</span><span class="pi">:</span>
+      <span class="na">BUILD_PATH</span><span class="pi">:</span> <span class="s">target</span>
+      <span class="na">DEPLOY_PATH</span><span class="pi">:</span> <span class="s">_site</span>
 
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
+    <span class="na">steps</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout 🛎️</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
 
-      - name: Generate html 🏗
-        run: asciidoctor --require asciidoctor-diagram docs/index.adoc --destination-dir ${{ env.BUILD_PATH }}
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Generate html 🏗</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="s">asciidoctor </span>
+          <span class="s">--require asciidoctor-diagram</span>
+          <span class="s">--destination-dir ${{ env.BUILD_PATH }}</span>
+          <span class="s">docs/index.adoc </span>
 
-      - name: Generate pdf 🏗
-        run: asciidoctor-pdf --require asciidoctor-diagram docs/index.adoc --destination-dir ${{ env.BUILD_PATH }}
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Generate pdf 🏗</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="s">asciidoctor-pdf</span>
+          <span class="s">--require asciidoctor-diagram</span>
+          <span class="s">--destination-dir ${{ env.BUILD_PATH }}</span>
+          <span class="s">docs/index.adoc</span>
 
-      - name: Copy artifacts 🚚
-        run: apk add rsync &amp;&amp; rsync -av --exclude=".*" ${{ env.BUILD_PATH }}/ ${{ env.DEPLOY_PATH }}
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Copy artifacts 🚚</span>
+        <span class="na">run</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="s">apk add rsync &amp;&amp;</span>
+          <span class="s">rsync -av --exclude=".*" ${{ env.BUILD_PATH }}/ ${{ env.DEPLOY_PATH }}</span>
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
-        with:
-          branch: public
-          folder: ${{ env.DEPLOY_PATH }}</code></pre>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Deploy 🚀</span>
+        <span class="na">uses</span><span class="pi">:</span> <span class="s">JamesIves/github-pages-deploy-action@v4.3.3</span>
+        <span class="na">with</span><span class="pi">:</span>
+          <span class="na">branch</span><span class="pi">:</span> <span class="s">public</span>
+          <span class="na">folder</span><span class="pi">:</span> <span class="s">${{ env.DEPLOY_PATH }}</span>
+</pre></td></tr></tbody></table></code></pre>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_explanation_3">Explanation</h3>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Lines</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Trigger the action every time a <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#push">commit is pushed</a> to the <code>main</code> branch at GitHub.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9-10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use Ubuntu as the GitHub runner environment</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12-14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use the <a href="https://hub.docker.com/r/asciidoctor/docker-asciidoctor/">asciidoctor/docker-asciidoctor</a> image so that the AsciiDoctor tools are available during the build.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19-21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Define paths used during the build as environment variables.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">23-24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <a href="https://github.com/actions/checkout#readme">checkout action</a> used by the GitHub workflow to checkout the source code.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26-28</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use the <code>asciidoctor</code> command to generate the docs as html in the <code>BUILD_PATH</code> directory.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30-32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use the <code>asciidoctor-pdf</code> command to generate the docs as pdf in the <code>BUILD_PATH</code> directory.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">34-37</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Install <a href="https://linux.die.net/man/1/rsync">rsync</a> and copy the generated files to the <code>DEPLOY_PATH</code> directory.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">39-41</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use <a href="https://github.com/JamesIves/github-pages-deploy-action#readme">GitHub Pages Deploy Action</a> to deploy the files in the <code>DEPLOY_PATH</code> to GitHub Pages.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_references">References</h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. references</caption>
+<table class="tableblock frame-all grid-all fit-content">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col>
+<col>
 </colgroup>
 <thead>
 <tr>
@@ -678,6 +1034,10 @@ jobs:
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://plantuml.com/stdlib#062f75176513a666" class="bare">https://plantuml.com/stdlib#062f75176513a666</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GitHub Actions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.github.com/en/actions" class="bare">https://docs.github.com/en/actions</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GitHub Pages</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://pages.github.com" class="bare">https://pages.github.com</a></p></td>
 </tr>
@@ -688,7 +1048,7 @@ jobs:
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-05-15 09:18:23 UTC
+Last updated 2022-06-04 14:48:36 UTC
 </div>
 </div>
 </body>
