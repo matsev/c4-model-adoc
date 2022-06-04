@@ -30,7 +30,9 @@ jobs:
         run: asciidoctor-pdf --require asciidoctor-diagram docs/index.adoc --destination-dir ${{ env.BUILD_PATH }}
 
       - name: Copy artifacts 🚚
-        run: apk add rsync && rsync -av --exclude=".*" ${{ env.BUILD_PATH }}/ ${{ env.DEPLOY_PATH }}
+        run: |
+          apk add rsync \
+          rsync -av --exclude=".*" ${{ env.BUILD_PATH }}/ ${{ env.DEPLOY_PATH }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3

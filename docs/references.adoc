@@ -16,6 +16,9 @@
 |C4 PlantUml
 |https://plantuml.com/stdlib#062f75176513a666
 
+|GitHub Actions
+|https://docs.github.com/en/actions
+
 |GitHub Pages
 |https://pages.github.com
 |===

@@ -2,7 +2,7 @@
 
 === Prerequisites
 - You need to have Docker installed and running.
-- Then you need to download the `asciidoctor/docker-asciidoctor` image:
+- Download the `asciidoctor/docker-asciidoctor` image:
 +
 [source,bash]
 ----
@@ -14,11 +14,11 @@ docker pull asciidoctor/docker-asciidoctor
 
 This project can be rendered as html using this bash command:
 
-[source%linenums,bash]
-.bash
+[source,bash,linenums]
+.generate html
 ----
 docker run --rm \
-  -v "$(pwd)":/documents/ \
+  --volume "$(pwd)":/documents/ \
   asciidoctor/docker-asciidoctor \
   asciidoctor \
   --require asciidoctor-diagram \
@@ -29,14 +29,14 @@ docker run --rm \
 
 ==== Explanation
 
-Line by line explanation of the bash commands above:
+Line by line explanation of the command above:
 
 . `docker run` starts a Docker container. The `--rm` option removes the container after the command has completed.
-. `-v` mount a volume to the container, i.e. the current directory (as returned by `$(pwd)` command) is mounted to the `/documents/` directory in the running Docker. container. The `/documents/` directory is the default working director of the `asciidoctor/docker-asciidoctor` Docker image.
+. `--volume` mount a volume to the container, i.e. the current directory (as returned by `$(pwd)` command) is mounted to the `/documents/` directory in the running Docker container. The `/documents/` directory is the default working director of the `asciidoctor/docker-asciidoctor` Docker image.
 . `asciidoctor/docker-asciidoctor` the name of the Docker image that is used to create the Docker container.
-. `asciidoctor` command to execute asciidoctor command to render html.
-. `--require asciidoctor-diagram` require the asciidoctor-diagram to be included (necessary for PlantUML rendering).
-* `--destination-dir target` the destination directory of the output files in the Docker container (and in the current directory since it is mounted).
+. `asciidoctor` the AsciiDoctor command to render html.
+. `--require asciidoctor-diagram` AsciiDoctor argument that requires the asciidoctor-diagram to be used (necessary for PlantUML rendering).
+* `--destination-dir target` asciidoctor argument that defines the destination directory of the output files in the Docker container. In this case the `target` directory.
 * `docs/index.adoc` the name of the AsciiDoc source file to generate the file from. Only the root document needs to be included since the other files are linked from it.
 
 
@@ -44,11 +44,11 @@ Line by line explanation of the bash commands above:
 
 Alternatively, this project can be rendered as a pdf:
 
-[source%linenums,bash]
+[source,bash,linenums]
 .generate pdf
 ----
 docker run --rm \
-  -v "$(pwd)":/documents/ \
+  --volume "$(pwd)":/documents/ \
   asciidoctor/docker-asciidoctor \
   asciidoctor-pdf \
   --require asciidoctor-diagram \

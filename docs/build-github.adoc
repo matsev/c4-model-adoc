@@ -1,8 +1,42 @@
-== GitHub Actions
+== Build GitHub Actions
 
 Build using GitHub Actions and publish to GitHub Pages:
 
-[source,yml]
+[source,yml,linenums]
 ----
 include::../.github/workflows/build-and-deploy.yml[]
 ----
+
+=== Explanation
+
+[cols="1%,99%"]
+|===
+|Lines |Purpose
+
+|3-6
+|Trigger the action every time a https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#push[commit is pushed] to the `main` branch at GitHub.
+
+|9-10
+|Use Ubuntu as the GitHub runner environment
+
+|12-14
+|Use the https://hub.docker.com/r/asciidoctor/docker-asciidoctor/[asciidoctor/docker-asciidoctor] image so that the AsciiDoctor tools are available during the build.
+
+|19-21
+|Define paths used during the build as environment variables.
+
+|23-24
+|The https://github.com/actions/checkout#readme[checkout action] used by the GitHub workflow to checkout the source code.
+
+|26-28
+|Use the `asciidoctor` command to generate the docs as html in the `BUILD_PATH` directory.
+
+|30-32
+|Use the `asciidoctor-pdf` command to generate the docs as pdf in the `BUILD_PATH` directory.
+
+|34-37
+|Install https://linux.die.net/man/1/rsync[rsync] and copy the generated files to the `DEPLOY_PATH` directory.
+
+|39-41
+|Use https://github.com/JamesIves/github-pages-deploy-action#readme[GitHub Pages Deploy Action] to deploy the files in the `DEPLOY_PATH` to GitHub Pages.
+|===

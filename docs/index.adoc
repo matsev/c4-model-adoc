@@ -1,7 +1,13 @@
 = C4 Model in AsciiDoctor
+:source-highlighter: rouge
+// :source-highlighter: coderay
+// :source-highlighter: pygments
 // yes, asciidoctor supports comments...
 :toc:
 // ...as well as table of content generation
+
+== Purpose
+The purpose of this project is to show how AsciiDoc can be used to generate C4 diagrams from PlantUML, both as html and pdf.
 
 include::c4-example.adoc[]
 

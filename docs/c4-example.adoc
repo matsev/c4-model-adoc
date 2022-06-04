@@ -1,5 +1,6 @@
-== Purpose
-The purpose of this document is to show how AsciiDoc can be used to generate C4 diagrams from PlantUML, both as html and pdf. The following example is based on the https://c4model.com/#SystemContextDiagram[System Context Diagram] example at the C4 Model home page. Consequently, this C4 diagram:
+## C4 Example
+
+The following example is based on the https://c4model.com/#SystemContextDiagram[System Context Diagram] example at the C4 Model home page. Consequently, this C4 diagram:
 
 [plantuml, ./c4-example, png]
 .C4 Example
