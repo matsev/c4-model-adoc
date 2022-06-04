@@ -36,8 +36,8 @@ Line by line explanation of the command above:
 . `asciidoctor/docker-asciidoctor` the name of the Docker image that is used to create the Docker container.
 . `asciidoctor` the AsciiDoctor command to render html.
 . `--require asciidoctor-diagram` AsciiDoctor argument that requires the asciidoctor-diagram to be used (necessary for PlantUML rendering).
-* `--destination-dir target` asciidoctor argument that defines the destination directory of the output files in the Docker container. In this case the `target` directory.
-* `docs/index.adoc` the name of the AsciiDoc source file to generate the file from. Only the root document needs to be included since the other files are linked from it.
+. `--destination-dir target` asciidoctor argument that defines the destination directory of the output files in the Docker container. In this case the `target` directory.
+. `docs/index.adoc` the name of the AsciiDoc source file to generate the file from. Only the root document needs to be included since the other files are linked from it.
 
 
 === Render pdf

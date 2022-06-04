@@ -4,21 +4,21 @@
 |===
 |Link |Comment
 
-|This project at GitHub
 |https://github.com/matsev/c4-model-adoc
+|This project at GitHub
 
-|AsciiDoctor Docker at GitHub
 |https://github.com/asciidoctor/docker-asciidoctor#readme
+|AsciiDoctor Docker at GitHub
 
-|PlantUML
 |https://plantuml.com
+|PlantUML
 
+|https://github.com/plantuml-stdlib/C4-PlantUML#readme
 |C4 PlantUml
-|https://plantuml.com/stdlib#062f75176513a666
 
-|GitHub Actions
 |https://docs.github.com/en/actions
+|GitHub Actions
 
-|GitHub Pages
 |https://pages.github.com
+|GitHub Pages
 |===

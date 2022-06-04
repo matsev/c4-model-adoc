@@ -1,7 +1,6 @@
 = C4 Model in AsciiDoctor
-:source-highlighter: rouge
-// :source-highlighter: coderay
-// :source-highlighter: pygments
+:source-highlighter: pygments
+
 // yes, asciidoctor supports comments...
 :toc:
 // ...as well as table of content generation

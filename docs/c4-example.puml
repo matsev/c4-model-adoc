@@ -11,6 +11,6 @@ System_Ext(mainframe, "Mainframe Banking System", "Stores all of the core bankin
 Rel(customer, banking_system, "Uses")
 Rel_Back(customer, mail_system, "Sends e-mails to")
 
-Rel_Neighbor(banking_system, mail_system, "Sends e-mails", "SMTP")
-Rel(banking_system, mainframe, "Uses")
+Rel_Neighbor(banking_system, mail_system, "Sends e-mails using", "SMTP")
+Rel(banking_system, mainframe, "Gets account information from, and makes payments using")
 @enduml

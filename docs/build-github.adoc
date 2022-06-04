@@ -2,7 +2,8 @@
 
 Build using GitHub Actions and publish to GitHub Pages:
 
-[source,yml,linenums]
+.github action
+[source,yaml,linenums]
 ----
 include::../.github/workflows/build-and-deploy.yml[]
 ----

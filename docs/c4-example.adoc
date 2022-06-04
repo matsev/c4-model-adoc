@@ -2,14 +2,14 @@
 
 The following example is based on the https://c4model.com/#SystemContextDiagram[System Context Diagram] example at the C4 Model home page. Consequently, this C4 diagram:
 
-[plantuml, ./c4-example, png]
+[plantuml, ./c4-example, svg]
 .C4 Example
 ....
 include::c4-example.puml[]
 ....
 
 is generated from this PlantUML file:
-[source,plantuml]
+[source%nowrap,puml,linenums]
 .plantuml source
 ----
 include::c4-example.puml[]
