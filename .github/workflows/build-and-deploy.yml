@@ -24,14 +24,22 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Generate html 🏗
-        run: asciidoctor --require asciidoctor-diagram docs/index.adoc --destination-dir ${{ env.BUILD_PATH }}
+        run: >
+          asciidoctor 
+          --require asciidoctor-diagram
+          --destination-dir ${{ env.BUILD_PATH }}
+          docs/index.adoc 
 
       - name: Generate pdf 🏗
-        run: asciidoctor-pdf --require asciidoctor-diagram docs/index.adoc --destination-dir ${{ env.BUILD_PATH }}
+        run: >
+          asciidoctor-pdf
+          --require asciidoctor-diagram
+          --destination-dir ${{ env.BUILD_PATH }}
+          docs/index.adoc
 
       - name: Copy artifacts 🚚
-        run: |
-          apk add rsync \
+        run: >
+          apk add rsync &&
           rsync -av --exclude=".*" ${{ env.BUILD_PATH }}/ ${{ env.DEPLOY_PATH }}
 
       - name: Deploy 🚀
