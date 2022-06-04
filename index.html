@@ -966,15 +966,15 @@ Rel(banking_system, mainframe, "Uses")
 <td class="tableblock halign-left valign-top"><p class="tableblock">Trigger the action every time a <a href="https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#push">commit is pushed</a> to the <code>main</code> branch at GitHub.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9-10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Use Ubuntu as the GitHub runner environment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use Ubuntu as the GitHub runner environment.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">12-14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12-16</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Use the <a href="https://hub.docker.com/r/asciidoctor/docker-asciidoctor/">asciidoctor/docker-asciidoctor</a> image so that the AsciiDoctor tools are available during the build.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">19-21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18-20</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Define paths used during the build as environment variables.</p></td>
 </tr>
 <tr>
@@ -982,19 +982,19 @@ Rel(banking_system, mainframe, "Uses")
 <td class="tableblock halign-left valign-top"><p class="tableblock">The <a href="https://github.com/actions/checkout#readme">checkout action</a> used by the GitHub workflow to checkout the source code.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">26-28</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26-31</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Use the <code>asciidoctor</code> command to generate the docs as html in the <code>BUILD_PATH</code> directory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">30-32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">33-38</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Use the <code>asciidoctor-pdf</code> command to generate the docs as pdf in the <code>BUILD_PATH</code> directory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">34-37</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40-43</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Install <a href="https://linux.die.net/man/1/rsync">rsync</a> and copy the generated files to the <code>DEPLOY_PATH</code> directory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">39-41</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">45-49</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Use <a href="https://github.com/JamesIves/github-pages-deploy-action#readme">GitHub Pages Deploy Action</a> to deploy the files in the <code>DEPLOY_PATH</code> to GitHub Pages.</p></td>
 </tr>
 </tbody>
@@ -1048,7 +1048,7 @@ Rel(banking_system, mainframe, "Uses")
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-06-04 14:48:36 UTC
+Last updated 2022-06-04 14:53:10 UTC
 </div>
 </div>
 </body>
