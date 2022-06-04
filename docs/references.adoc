@@ -1,6 +1,6 @@
 == References
 
-.references
+[options="header,autowidth"]
 |===
 |Link |Comment
 

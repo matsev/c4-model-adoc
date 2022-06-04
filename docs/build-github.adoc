@@ -8,8 +8,7 @@ include::../.github/workflows/build-and-deploy.yml[]
 ----
 
 === Explanation
-
-[cols="1%,99%"]
+[options="header,autowidth"]
 |===
 |Lines |Purpose
 
