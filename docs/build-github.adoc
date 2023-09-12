@@ -16,6 +16,9 @@ include::../.github/workflows/build-and-deploy.yml[]
 |3-6
 |Trigger the action every time a https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#push[commit is pushed] to the `main` branch at GitHub.
 
+|9
+|Define the `build` job
+
 |10
 |Use Ubuntu as the GitHub runner environment.
 
@@ -26,7 +29,7 @@ include::../.github/workflows/build-and-deploy.yml[]
 |Define paths used during the build as environment variables.
 
 |23-24
-|The https://github.com/actions/checkout#readme[checkout action] used by the GitHub workflow to checkout the source code.
+|The https://github.com/actions/checkout#readme[checkout action] is used by the GitHub workflow to checkout the source code.
 
 |26-31
 |Use the `asciidoctor` command to generate the docs as html in the `BUILD_PATH` directory.
@@ -35,8 +38,21 @@ include::../.github/workflows/build-and-deploy.yml[]
 |Use the `asciidoctor-pdf` command to generate the docs as pdf in the `BUILD_PATH` directory.
 
 |40-43
-|Install https://linux.die.net/man/1/rsync[rsync] and copy the generated files to the `DEPLOY_PATH` directory.
+|Install https://linux.die.net/man/1/rsync[rsync] and https://linux.die.net/man/1/tar[tar] since they are not available in the `asciidoctor/docker-asciidoctor` image. `rsync` is used to copy the generated files to the `DEPLOY_PATH` directory and `tar` is used by the `upload-pages-artifact` action.
 
-|45-49
-|Use https://github.com/JamesIves/github-pages-deploy-action#readme[GitHub Pages Deploy Action] to deploy the files in the `DEPLOY_PATH` to GitHub Pages.
+|45-46
+|Package and upload the files by using https://github.com/actions/upload-pages-artifact/#upload-pages-artifact[upload-pages-artifact]. This action packages the files in the format that is required by GitHub Pages and uploads them as an artifact.
+
+|48-50
+|Define the `upload` job that depends on the `build` job.
+
+|53-55
+|Grant permissions to the action to make a GitHub Pages deployment.
+
+|58-60
+|Define the `github-pages` environment and the url to the generated site.
+
+|62-65
+|Use the https://github.com/actions/deploy-pages#deploy-pages-[deploy-pages] action to deploy the artifact uploaded in the `build` job to GitHub Pages.
+
 |===

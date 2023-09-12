@@ -7,10 +7,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     container:
-      image: asciidoctor/docker-asciidoctor:1.18
+      image: asciidoctor/docker-asciidoctor:1.54
       volumes:
         # /documents/ is the default working directory of the docker-asciidoctor container
         - ${{ github.workspace }}:/documents/
@@ -23,26 +23,43 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Generate html 🏗
+      - name: Generate html 📝
         run: >
           asciidoctor 
           --require asciidoctor-diagram
           --destination-dir ${{ env.BUILD_PATH }}
           docs/index.adoc 
 
-      - name: Generate pdf 🏗
+      - name: Generate pdf 📝
         run: >
           asciidoctor-pdf
           --require asciidoctor-diagram
           --destination-dir ${{ env.BUILD_PATH }}
           docs/index.adoc
 
-      - name: Copy artifacts 🚚
-        run: >
-          apk add rsync &&
+      - name: Copy artifacts 📂
+        run: |
+          apk add rsync tar
           rsync -av --exclude=".*" ${{ env.BUILD_PATH }}/ ${{ env.DEPLOY_PATH }}
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: ${{ env.DEPLOY_PATH }}
+      - name: Package and upload 📦
+        uses: actions/upload-pages-artifact@v2
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v2
